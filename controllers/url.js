@@ -12,9 +12,13 @@ async function handleGenerateNewShortURL(req, res){
     visitHistory: [],
   });
 
-    return res.json({id: shortID});
+    return res.render("home",{
+      id: shortID,
+      urls:allUrls,
+    });
 }
 
+//Analytics generating route
 async function handleGetAnalytics(req, res){
     const shortId = req.params.shortId;
     const result = await URL.findOne({ shortId });

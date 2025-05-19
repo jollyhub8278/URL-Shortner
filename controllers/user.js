@@ -19,7 +19,8 @@ async function handleUserLogin(req,res){
     if(!user) return res.render('login',{
         error: "Invalid Username or Password",
     });
-   
+   //if your user is correct then make a session id for that
+   const sessionId = uuidv4();
     return res.redirect("/");
 }
 

@@ -11,7 +11,13 @@ const urlSchema = new mongoose.Schema({
         required: true,
     },
     visitHistory:[{timestamp: {type: Number}}],
+    //problem is we need to show the user what he/she created not the ones which are crested by others also
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user",
+    }
   },
+  
   { timestamps: true}
 );
 
